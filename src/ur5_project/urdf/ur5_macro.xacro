@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="ur5_robot" params="prefix">
+
+    <!-- Visual and Collision Mesh Paths -->
+    <xacro:property name="base_visual_mesh" value="package://ur5_project/meshes/visual/base.dae"/>
+    <xacro:property name="base_collision_mesh" value="package://ur5_project/meshes/collision/base.stl"/>
+
+    <xacro:property name="shoulder_visual_mesh" value="package://ur5_project/meshes/visual/shoulder.dae"/>
+    <xacro:property name="shoulder_collision_mesh" value="package://ur5_project/meshes/collision/shoulder.stl"/>
+
+    <xacro:property name="upper_arm_visual_mesh" value="package://ur5_project/meshes/visual/upperarm.dae"/>
+    <xacro:property name="upper_arm_collision_mesh" value="package://ur5_project/meshes/collision/upperarm.stl"/>
+
+    <xacro:property name="forearm_visual_mesh" value="package://ur5_project/meshes/visual/forearm.dae"/>
+    <xacro:property name="forearm_collision_mesh" value="package://ur5_project/meshes/collision/forearm.stl"/>
+
+    <xacro:property name="wrist_1_visual_mesh" value="package://ur5_project/meshes/visual/wrist1.dae"/>
+    <xacro:property name="wrist_1_collision_mesh" value="package://ur5_project/meshes/collision/wrist1.stl"/>
+
+    <xacro:property name="wrist_2_visual_mesh" value="package://ur5_project/meshes/visual/wrist2.dae"/>
+    <xacro:property name="wrist_2_collision_mesh" value="package://ur5_project/meshes/collision/wrist2.stl"/>
+
+    <xacro:property name="wrist_3_visual_mesh" value="package://ur5_project/meshes/visual/wrist3.dae"/>
+    <xacro:property name="wrist_3_collision_mesh" value="package://ur5_project/meshes/collision/wrist3.stl"/>
+
+    <!-- Color (Optional but useful for RViz) -->
+    <xacro:property name="base_visual_material_name" value="gray"/>
+    <xacro:property name="base_visual_material_color" value="0.6 0.6 0.6 1"/>
+
+    <xacro:property name="shoulder_visual_material_name" value="gray"/>
+    <xacro:property name="shoulder_visual_material_color" value="0.6 0.6 0.6 1"/>
+
+    <xacro:property name="upper_arm_visual_material_name" value="gray"/>
+    <xacro:property name="upper_arm_visual_material_color" value="0.6 0.6 0.6 1"/>
+
+    <xacro:property name="forearm_visual_material_name" value="gray"/>
+    <xacro:property name="forearm_visual_material_color" value="0.6 0.6 0.6 1"/>
+
+    <xacro:property name="wrist_1_visual_material_name" value="gray"/>
+    <xacro:property name="wrist_1_visual_material_color" value="0.6 0.6 0.6 1"/>
+
+    <xacro:property name="wrist_2_visual_material_name" value="gray"/>
+    <xacro:property name="wrist_2_visual_material_color" value="0.6 0.6 0.6 1"/>
+
+    <xacro:property name="wrist_3_visual_material_name" value="gray"/>
+    <xacro:property name="wrist_3_visual_material_color" value="0.6 0.6 0.6 1"/>
+
+    <!-- Include the core UR macro and call the ur_robot -->
+    <xacro:include filename="$(find ur5_project)/urdf/ur_macro.xacro" />
+
+    <xacro:ur_robot
+      prefix="${prefix}"
+      joint_limits_parameters_file="$(find ur5_project)/config/joint_limits.yaml"
+      kinematics_parameters_file="$(find ur5_project)/config/default_kinematics.yaml"
+      physical_parameters_file="$(find ur5_project)/config/physical_parameters.yaml"
+      visual_parameters_file="$(find ur5_project)/config/visual_parameters.yaml"
+      transmission_hw_interface="hardware_interface/PositionJointInterface"
+      safety_limits="false"
+      safety_pos_margin="0.15"
+      safety_k_position="20" />
+  </xacro:macro>
+</robot>
