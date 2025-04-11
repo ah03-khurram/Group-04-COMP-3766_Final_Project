@@ -11,20 +11,23 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   xacro
   urdf
+  tf
 )
 
-## Declare your catkin package
 catkin_package()
 
-## Specify include directories (optional unless using C++ code)
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-# ## Install Python scripts (if you add any later like goal_pose_node.py)
 # catkin_install_python(PROGRAMS
-#   # scripts/goal_pose_node.py
-#   # scripts/forward_kinematics.py
-#   # scripts/inverse_kinematics.py
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+# #   scripts/core.py
+# #   scripts/goal_pose_node.py
+# #   scripts/lab3_ik_solver.py
+# #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
+
+catkin_install_python(PROGRAMS
+  scripts/analytical_ik_solver.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

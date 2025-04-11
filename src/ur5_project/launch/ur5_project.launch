@@ -1,12 +1,13 @@
 <launch>
     <!-- Load robot description from ur5.xacro -->
-    <param name="robot_description" command="$(find xacro)/xacro '$(find ur5_project)/urdf/ur5.xacro'" />
+    <param name="robot_description" textfile="$(find ur5_project)/urdf/ur5.urdf" />
 
     <!-- Publish joint states for visualization -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen"/>
 
     <!-- Publishes TF frames based on joint states -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+
 
     <!-- Joint State Publisher GUI -->
     <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" output="screen"/>
