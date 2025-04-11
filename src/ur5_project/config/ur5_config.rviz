@@ -99,21 +99,21 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        base_link:
+        /base_link:
           Value: true
-        link_1:
+        /link_1:
           Value: true
-        link_2:
+        /link_2:
           Value: true
-        link_3:
+        /link_3:
           Value: true
-        link_4:
+        /link_4:
           Value: true
-        link_5:
+        /link_5:
           Value: true
-        link_6:
+        /link_6:
           Value: true
-        tool0:
+        /tool0:
           Value: true
         All Enabled: true
       Marker Scale: 1
@@ -122,21 +122,21 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          link_1:
-            link_2:
-              link_3:
-                link_4:
-                  link_5:
-                    link_6:
-                      tool0:
+        /base_link:
+          /link_1:
+            /link_2:
+              /link_3:
+                /link_4:
+                  /link_5:
+                    /link_6:
+                      /tool0:
                         {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: /base_link
   Name: root
   Tools:
     - Class: rviz/Interact

@@ -6,12 +6,27 @@ from geometry_msgs.msg import Pose
 from tf.transformations import quaternion_from_matrix
 from std_msgs.msg import Header
 
+<<<<<<< HEAD
 # 🔧 Set your desired goal position and orientation here
 GOAL_POSITION = np.array([0.4, 0.1, 0.3])  # X, Y, Z position
 GOAL_ROTATION_MATRIX = np.array([         # 3x3 Identity (facing forward)
     [1.0, 0.0, 0.0],  # x-axis
     [0.0, 1.0, 0.0],  # y-axis
     [0.0, 0.0, 1.0]   # z-axis
+=======
+# Set your desired goal position and orientation here
+# GOAL_POSITION = np.array([0.4, 0.1, 0.3])  # X, Y, Z position
+# GOAL_ROTATION_MATRIX = np.array([         # 3x3 Identity (facing forward)
+#     [1.0, 0.0, 0.0],  # x-axis
+#     [0.0, 1.0, 0.0],  # y-axis
+#     [0.0, 0.0, 1.0]   # z-axis
+# ])
+GOAL_POSITION = np.array([0.5, 0.1, 0.25])
+GOAL_ROTATION_MATRIX = np.array([
+    [1.0,  0.0,  0.0],
+    [0.0,  0.0, -1.0],
+    [0.0,  1.0,  0.0]
+>>>>>>> b21607ab6a24027eaa23da3c678ec158e13e1e4f
 ])
 
 def publish_goal_pose():
@@ -19,12 +34,20 @@ def publish_goal_pose():
     pose_pub = rospy.Publisher("/goal_pose", Pose, queue_size=10)
     rate = rospy.Rate(10)
 
+<<<<<<< HEAD
     # 👉 Convert 3x3 rotation matrix to 4x4 matrix
+=======
+    # Convert 3x3 rotation matrix to 4x4 matrix
+>>>>>>> b21607ab6a24027eaa23da3c678ec158e13e1e4f
     rot_matrix_4x4 = np.eye(4)
     rot_matrix_4x4[:3, :3] = GOAL_ROTATION_MATRIX
     quaternion = quaternion_from_matrix(rot_matrix_4x4)
 
+<<<<<<< HEAD
     # 👉 Fill in Pose message
+=======
+    # Fill in Pose message
+>>>>>>> b21607ab6a24027eaa23da3c678ec158e13e1e4f
     goal_pose = Pose()
     goal_pose.position.x = GOAL_POSITION[0]
     goal_pose.position.y = GOAL_POSITION[1]
@@ -48,4 +71,8 @@ if __name__ == "__main__":
     try:
         publish_goal_pose()
     except rospy.ROSInterruptException:
+<<<<<<< HEAD
         pass
+=======
+        pass
+>>>>>>> b21607ab6a24027eaa23da3c678ec158e13e1e4f
