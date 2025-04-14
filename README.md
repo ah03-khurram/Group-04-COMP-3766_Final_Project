@@ -76,7 +76,7 @@ This node publishes a fixed goal pose to `/goal_pose`, triggering the inverse ki
 - Open **another terminal**, then run:
 ```bash
 source devel/setup.bash
-rosrun ur5_project goal_pose_node1.py
+rosrun ur5_project forward_kinematics_simulator.py
 ```
 - This is a node that publishes a sequence of joint configurations to `/joint_states`, allowing the UR5 model in RViz to animate through different poses.
 - **Verify the Robot in RViz.** Open `http://localhost:6080/` on your browser. Observe the robot’s joint’s movement simulation...
