@@ -20,11 +20,10 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-## Install Python scripts (if you add any later like goal_pose_node.py)
+## Install Python scripts 
 catkin_install_python(PROGRAMS
   scripts/goal_pose_node.py
-  scripts/goal_pose_node1.py
   scripts/inverse_kinematics.py
-  scripts/forward_kinematics.py
+  scripts/forward_kinematics_simulator.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

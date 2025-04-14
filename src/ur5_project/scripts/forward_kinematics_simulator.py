@@ -8,9 +8,8 @@ import numpy as np
 def publish_joint_states():
     rospy.init_node("ur5_fk_joint_publisher", anonymous=True)
     joint_pub = rospy.Publisher("/joint_states", JointState, queue_size=10)
-    rate = rospy.Rate(1)  # 1 Hz
+    rate = rospy.Rate(1)  
 
-    # ✅ Example joint configurations (you can modify these)
     joint_configs = [
         [0, -1.57, 1.57, 0, 1.57, 0],   # Bent elbow
         [0.5, -1.2, 1.2, 0.5, 1.0, 0.2],  # Another pose

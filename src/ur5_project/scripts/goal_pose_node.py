@@ -7,18 +7,19 @@ from tf.transformations import quaternion_from_matrix
 from std_msgs.msg import Header
 
 # Set your desired goal position and orientation here
-# GOAL_POSITION = np.array([0.4, 0.1, 0.3])  # X, Y, Z position
-# GOAL_ROTATION_MATRIX = np.array([         # 3x3 Identity (facing forward)
-#     [1.0, 0.0, 0.0],  # x-axis
-#     [0.0, 1.0, 0.0],  # y-axis
-#     [0.0, 0.0, 1.0]   # z-axis
-# ])
-GOAL_POSITION = np.array([0.5, 0.1, 0.25])
+GOAL_POSITION = np.array([-0.1, 0.0, 0.3])  # Behind the base
 GOAL_ROTATION_MATRIX = np.array([
-    [1.0,  0.0,  0.0],
-    [0.0,  0.0, -1.0],
-    [0.0,  1.0,  0.0]
+    [ 0.0,  1.0,  0.0],
+    [ 1.0,  0.0,  0.0],
+    [ 0.0,  0.0, -1.0]  # Flipped tool
 ])
+# Example to Test (Uncomment the following)
+# GOAL_POSITION = np.array([0.5, 0.1, 0.25])
+# GOAL_ROTATION_MATRIX = np.array([
+#     [1.0,  0.0,  0.0],
+#     [0.0,  0.0, -1.0],
+#     [0.0,  1.0,  0.0]
+# ])
 
 def publish_goal_pose():
     rospy.init_node("goal_pose_publisher", anonymous=True)
