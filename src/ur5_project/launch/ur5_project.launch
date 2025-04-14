@@ -1,0 +1,15 @@
+<launch>
+    <!-- Load robot description from ur5.urdf -->
+    <param name="robot_description" textfile="$(find ur5_project)/urdf/ur5.urdf" />
+
+    <!-- Publishes TF frames based on joint states -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+
+
+    <!-- Joint State Publisher GUI (following line should be commented out while
+                                      running inverse kinematics and forward kinematics simulator) -->
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" output="screen"/>
+
+    <!-- Launch RViz with pre-loaded config -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ur5_project)/config/ur5_config.rviz" />
+</launch>
